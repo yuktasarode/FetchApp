@@ -50,7 +50,7 @@ data class Item(val id: Int, val listId: Int, val name: String?)
 
 @Composable
 fun Greeting(modifier: Modifier = Modifier) {
-    val fetchedData = remember { mutableStateOf<Map<Int, List<Item>>>(emptyMap()) } // State to hold fetched data
+    val fetchedData = remember { mutableStateOf<Map<Int, List<Item>>>(emptyMap()) }
 
 
     LaunchedEffect(key1 = Unit) {
@@ -108,7 +108,7 @@ suspend fun fetchData(): String = withContext(Dispatchers.IO) {
     val url = "https://fetch-hiring.s3.amazonaws.com/hiring.json"
     val connection = URL(url).openConnection() as HttpURLConnection
     connection.requestMethod = "GET"
-    connection.connectTimeout = 5000 // Set your preferred timeout
+    connection.connectTimeout = 5000
     connection.readTimeout = 5000
 
     try {
